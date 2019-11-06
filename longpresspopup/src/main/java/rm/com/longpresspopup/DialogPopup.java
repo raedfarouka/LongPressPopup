@@ -1,9 +1,15 @@
 package rm.com.longpresspopup;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.InsetDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
+import android.util.DisplayMetrics;
+import android.view.Display;
+import android.view.WindowManager;
 
 /**
  * Created by Riccardo on 11/11/16.
@@ -64,6 +70,13 @@ public class DialogPopup extends AlertDialog {
                         break;
                 }
 
+                getWindow().getAttributes().width =
+                        (int) (getDeviceMetrics(getContext()).widthPixels);
+
+                ColorDrawable back = new ColorDrawable(Color.TRANSPARENT);
+                InsetDrawable inset = new InsetDrawable(back, 0);
+                getWindow().setBackgroundDrawable(inset);
+
                 getWindow().setWindowAnimations(animations);
             }
 
@@ -71,4 +84,12 @@ public class DialogPopup extends AlertDialog {
             e.printStackTrace();
         }
     }
+    public static DisplayMetrics getDeviceMetrics(Context context) {
+        DisplayMetrics metrics = new DisplayMetrics();
+        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        Display display = wm.getDefaultDisplay();
+        display.getMetrics(metrics);
+        return metrics;
+    }
+
 }
