@@ -71,11 +71,10 @@ public class DialogPopup extends AlertDialog {
                 }
 
                 getWindow().getAttributes().width =
-                        (int) (getDeviceMetrics(getContext()).widthPixels);
+                        (int) (getDeviceMetrics(getContext()).widthPixels *0.95);
 
-                ColorDrawable back = new ColorDrawable(Color.TRANSPARENT);
-                InsetDrawable inset = new InsetDrawable(back, 0);
-                getWindow().setBackgroundDrawable(inset);
+                ColorDrawable back = new ColorDrawable();
+                getWindow().setBackgroundDrawable(back);
 
                 getWindow().setWindowAnimations(animations);
             }

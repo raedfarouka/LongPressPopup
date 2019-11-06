@@ -187,9 +187,9 @@ public class LongPressPopup implements LongPressPopupInterface, DialogInterface.
      * Show manually the popup
      */
     public void showNow() {
-        if (!mRegistered) {
-            register();
-        }
+//        if (!mRegistered) {
+//            register();
+//        }
 
         showPopupDialog();
     }
@@ -270,9 +270,9 @@ public class LongPressPopup implements LongPressPopupInterface, DialogInterface.
             errorMessage = "Cannot create with a null popup view";
         }
 
-        if (mViewTarget == null) {
-            errorMessage = "Cannot create with a null target view";
-        }
+//        if (mViewTarget == null) {
+//            errorMessage = "Cannot create with a null target view";
+//        }
 
         if (errorMessage != null) {
             throw new IllegalArgumentException(errorMessage);
