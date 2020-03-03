@@ -81,8 +81,7 @@ class PopupTouchListener implements View.OnTouchListener {
                                     mLongClickDuration));
                     break;
             }
-        } else if (motionEvent.getAction() == MotionEvent.ACTION_UP ||
-                motionEvent.getAction() == MotionEvent.ACTION_CANCEL) {// Press finished
+        } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {// Press finished
 
             switch (mCurrentPressStatus) {
                 case STATUS_NOT_PRESSED:
